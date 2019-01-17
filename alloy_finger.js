@@ -1,4 +1,4 @@
-/* AlloyFinger v0.1.15
+/* AlloyFinger v0.1.15+
  * By dntzhang
  * Github: https://github.com/AlloyTeam/AlloyFinger
  */
@@ -162,6 +162,10 @@
 
                 if (preV.x !== null) {
                     if (this.pinchStartLen > 0) {
+                        evt.center = {
+                            x: (evt.touches[1].pageX + currentX) / 2, 
+                            y: (evt.touches[1].pageY + currentY) / 2
+                        };
                         evt.zoom = getLen(v) / this.pinchStartLen;
                         this.pinch.dispatch(evt, this.element);
                     }
